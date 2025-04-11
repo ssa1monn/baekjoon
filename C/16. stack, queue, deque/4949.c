@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define MAX_STACK_SIZE 101
+#define MAX_STACK_SIZE 102
 
 typedef char element;
 typedef struct {
@@ -31,11 +31,12 @@ void pushString(StackType *s, element string[]) {
 }
 
 int main(void) {
-    char string[101];
+    char string[MAX_STACK_SIZE];
     StackType stack;
 
     while(string[0] != '.') {
-        scanf(" %[^\n]s", string);
+        scanf("%[^\n]s", string);
+        getchar();
         init_stack(&stack);
         int j = 0, isVPS = 1;
         
@@ -61,8 +62,8 @@ int main(void) {
 
         if(!is_empty(&stack)) isVPS = 0;
 
-        if(isVPS) printf("YES\n");
-        else printf("NO\n");
+        if(isVPS) printf("yes\n");
+        else printf("no\n");
     }
 
     return 0;
